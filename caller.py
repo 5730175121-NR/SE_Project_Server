@@ -11,5 +11,5 @@ class Caller(User):
     def bookTaxi(self):
         print('booking')
 
-    def paid(transactionID):
+    def paid(self, transactionID):
         print('paid')
