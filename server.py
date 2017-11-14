@@ -5,7 +5,6 @@ import threading
 class Handler(BaseHTTPRequestHandler):
 
     def do_GET(self):
-        print(threading.currentThread().getName())
         self.send_response(200)
         self.send_header('Content-type', 'application/json')
         self.send_header('Access-Control-Allow-Origin', '*')
