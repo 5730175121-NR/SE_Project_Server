@@ -1,13 +1,6 @@
 class User:
-    facebookID = ''
-    phoneNumber = ''
-    password = ''
-    dataOfBirth = ''
-    firstName = ''
-    lastName = ''
-    address = ''
-
-    def __init__(self, facebookID, phoneNumber, password, dataOfBirth, firstName, lastName, address):
+  
+    def __init__(self, facebookID= '', phoneNumber= '', password = '', dataOfBirth= '', firstName = '', lastName= '', address= ''):
         self.facebookID = facebookID
         self.phoneNumber = phoneNumber
         self.password = password
