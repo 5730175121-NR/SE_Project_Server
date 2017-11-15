@@ -1,3 +1,5 @@
+from position import Position
+
 class User:
   
     def __init__(self, facebookID= '', phoneNumber= '', password = '', dataOfBirth= '', firstName = '', lastName= '', address= ''):
@@ -8,6 +10,7 @@ class User:
         self.firstName = firstName
         self.lastName = lastName
         self.address = address
+        self.user_position = Position()
 
     def login(self, phoneNumber, password):
         return -1
