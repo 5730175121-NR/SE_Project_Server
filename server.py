@@ -1,7 +1,10 @@
 from http.server import HTTPServer, BaseHTTPRequestHandler
 from socketserver import ThreadingMixIn
 from urllib import parse
+from url_management import url_management
+from decimal import Decimal
 import threading
+import json
 
 class Handler(BaseHTTPRequestHandler):
 
@@ -11,11 +14,13 @@ class Handler(BaseHTTPRequestHandler):
         path= self.path
         realpath= parsed_path.path
         querys = parsed_path.query
+        response = url_management(realpath, querys)
+        print(response)
         self.send_response(200)
         self.send_header('Content-type', 'application/json')
         self.send_header('Access-Control-Allow-Origin', '*')
         self.end_headers()
-        self.wfile.write("Hello world!!!".encode('utf-8'))       
+        self.wfile.write("called".encode('utf-8'))       
 
 class ThreadedHTTPServer(ThreadingMixIn, HTTPServer):
     pass
