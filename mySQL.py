@@ -2,7 +2,7 @@ import pymysql
 
 class MySQL:
 
-    def __init__(self,username='', password='', host='', port='', database=''):
+    def __init__(self,username='tara', password='t4101VIP', host='dbtaxivip.cf2040tucamf.ap-southeast-1.rds.amazonaws.com', port=3306, database='SE_taxiVIP'):
         self.username = username
         self.password = password
         self.host = host
@@ -13,10 +13,9 @@ class MySQL:
 
     def query(self,querys,formats=''):
         return_list = []
-        if formats == '':
-            self.cursor.execute(querys)
-        else:
-            self.cursor.execute(querys,formats)
+        if formats != '':
+            querys = querys % formats
+        self.cursor.execute(querys)
         for data in self.cursor:
             return_list.append(data)
         return return_list
