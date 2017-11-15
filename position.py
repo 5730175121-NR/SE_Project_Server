@@ -16,7 +16,7 @@ class Position:
     def getLocationName(self, latitude, longitude):
         return 'no place'
 
-    def setLocationName(self, latitude, longitude):
+    def setLocation(self, latitude, longitude):
         self.timestamp = datetime.datetime.now()
         self.latitude = latitude
         self.longitude = longitude
