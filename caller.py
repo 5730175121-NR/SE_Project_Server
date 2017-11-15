@@ -10,7 +10,6 @@ class Caller(User):
         mysql = MySQL()
         list_of_taxi = mysql.query('SELECT * FROM gettaxi.driver')
         mysql.close()
-        print('return Object')
         return list_of_taxi
 
     def bookTaxi(self):
