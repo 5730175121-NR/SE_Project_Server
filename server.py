@@ -1,10 +1,16 @@
 from http.server import HTTPServer, BaseHTTPRequestHandler
 from socketserver import ThreadingMixIn
+from urllib import parse
 import threading
 
 class Handler(BaseHTTPRequestHandler):
 
     def do_GET(self):
+        parsed_path = parse.urlparse(self.path)
+        print(parsed_path)
+        path= self.path
+        realpath= parsed_path.path
+        querys = parsed_path.query
         self.send_response(200)
         self.send_header('Content-type', 'application/json')
         self.send_header('Access-Control-Allow-Origin', '*')
