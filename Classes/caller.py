@@ -1,5 +1,5 @@
-from user import User
-from mySQL import MySQL
+from .user import User
+from .MySQL.mySQL import MySQL
 
 class Caller(User):
 

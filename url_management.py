@@ -1,5 +1,4 @@
-from mySQL import MySQL
-from caller import Caller
+from Classes.caller import Caller
 
 def path_spliter(path):
     return path.split('/')
