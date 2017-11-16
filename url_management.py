@@ -16,16 +16,17 @@ def query_spliter(querys):
 
 def url_management(path, querys):
     path_list = path_spliter(path)
-    print(path_list)
     querys_dict = query_spliter(querys)
     if path_list[1] == 'caller':
         return caller(path_list, querys_dict)
+    else: 
+        return ['invalid address'] 
 
 def caller(path_list, querys_dict):
     caller = Caller()
     if path_list[2] == 'searchtaxi':
         try:
-            caller.user_position.setLocationName(float(querys_dict['latitude']), float(querys_dict['longitude']))
+            caller.user_position.setLocation(float(querys_dict['latitude']), float(querys_dict['longitude']))
         except:
             return ['inValid Latitude and Longitude']
             pass
