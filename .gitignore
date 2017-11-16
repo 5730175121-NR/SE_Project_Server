@@ -3,3 +3,6 @@ test.py
 
 # pycache file
 __pycache__/
+
+# configure host and port
+configure
