@@ -27,6 +27,24 @@ class ThreadedHTTPServer(ThreadingMixIn, HTTPServer):
 if __name__ == '__main__':
     host = 'localhost'
     port = 5000
+    try:
+        configuration_file = open('configuration','r')
+        configuration = {}    
+        for line in configuration_file.readlines():
+            line = line.strip('\n')
+            (key,val) = line.split(':')
+            configuration[key] = val
+        if 'host' in configuration:
+            host = configuration['host']
+        if 'port' in configuration:
+            port = int(configuration['port'])
+        configuration_file.close()
+    except:
+        configuration_file = open('configuration','w')
+        configuration_file.write("host:localhost\nport:5000")
+        configuration_file.close()
+        print('configuration file is not found : use "localhost" and port : 8080 as default')
+        pass
     server = ThreadedHTTPServer((host, port), Handler)
     print('Starting server on %s port: %s, use <Ctrl-C> to stop' % (host, port))
     try:
