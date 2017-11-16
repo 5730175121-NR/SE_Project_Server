@@ -6,12 +6,12 @@ class Caller(User):
     def callTaxi(self):
         print('call taxi!!')
 
-    def searchTaxi(self):
+    def searchTaxi(self, latitude , longitude):
         mysql = MySQL()
-        min_latitude = self.user_position.latitude - 5.0
-        max_latitude = self.user_position.latitude + 5.0
-        min_longitude = self.user_position.longitude - 5.0
-        max_longitude = self.user_position.longitude + 5.0
+        min_latitude = latitude - 5.0
+        max_latitude = latitude + 5.0
+        min_longitude = longitude - 5.0
+        max_longitude = longitude + 5.0
         list_of_results = mysql.query('SELECT * FROM gettaxi.driver WHERE ((real_time_lat_location BETWEEN %s AND %s) AND (real_time_long_location BETWEEN %s AND %s))', (min_latitude,max_latitude,min_longitude,max_longitude))
         list_of_taxi = []
         for result in list_of_results:
