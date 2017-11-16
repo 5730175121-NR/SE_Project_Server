@@ -22,10 +22,9 @@ def url_management(path, querys):
         return ['invalid address'] 
 
 def caller(path_list, querys_dict):
-    caller = Caller()
     if path_list[2] == 'searchtaxi':
         try:
-            caller.user_position.setLocation(float(querys_dict['latitude']), float(querys_dict['longitude']))
+            return Caller().searchTaxi(float(querys_dict['latitude']), float(querys_dict['longitude']))
         except:
             return ['inValid Latitude and Longitude']
             pass
