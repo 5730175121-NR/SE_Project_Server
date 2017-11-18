@@ -4,6 +4,8 @@ from .MySQL.mySQL import MySQL
 class Caller(User):
 
     def callTaxi(self):
+        mysql = MySQL()
+        mysql.close()
         print('call taxi!!')
 
     def searchTaxi(self, latitude , longitude):
