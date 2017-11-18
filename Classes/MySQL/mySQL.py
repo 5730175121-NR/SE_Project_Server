@@ -20,6 +20,18 @@ class MySQL:
             return_list.append(data)
         return return_list
 
+    def insert(self,querys,data=(),dict_data={}):
+        if data != ():
+            self.cursor.execute(querys, data)
+        elif dict_data != {}:
+            self.cursor.execute(querys,dict_data)
+        else:
+            return 'error : No data to insert.'
+        return 'Successful Inserted'
+
+        
+
+
     def close(self):
         self.cursor.close()
         self.cnx.close()
